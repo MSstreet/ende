@@ -1,7 +1,14 @@
 #include "hax_test.h"
 
 int main(int argc, char* argv[]) {
-
+	if (argv[1] == NULL) {
+		printf("Wrong input");
+		return 0;
+	}
+	if (argv[2] != haxencode || argv[2] != haxdecode || argv[2] != binaryencode || argv[2] != binarydecode) {
+		printf("Wrong input");
+		return 0;
+	}
 	char* input = argv[1];
 	int err;
 	printf("%s\n", input);
