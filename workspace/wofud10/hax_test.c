@@ -42,7 +42,7 @@ int binaryencode(char *input, int intput_len, char *output, int* output_len) {
 	if (input == NULL) return -1;
 
 	size_t len = strlen(input);
-	char *binary = malloc(len * 8 + 1); // each char is one byte (8 bits) and + 1 at the end for null terminator
+	char *binary = malloc(len * 8 + 1);
 	binary[0] = '\0';
 	for (size_t i = 0; i < len; ++i) {
 		char ch = input[i];
@@ -57,11 +57,16 @@ int binaryencode(char *input, int intput_len, char *output, int* output_len) {
 	}
 	strcpy(output, binary);
 	*output_len = strlen(output);
+	free(binary);
 	return 0;
 }
 
 int binarydecode(char *intput, int input_len, char* output, int* output_len) {
-
+	input_len = input_len - 1;
+	if (input_len % 2 != 0) {
+		printf("Wrong input");
+		return -1;
+	}
 	char *s1 = intput;
 	int  num1;
 	int input_len2 = input_len *2;
@@ -69,6 +74,8 @@ int binarydecode(char *intput, int input_len, char* output, int* output_len) {
 	int i;
 	int j = 0;
 	int x = 0;
+
+
 
 	for (i = 1; i < input_len; i++) {
 		output[x] = s1[i-1];
