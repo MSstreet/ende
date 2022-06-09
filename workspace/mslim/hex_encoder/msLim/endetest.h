@@ -10,8 +10,8 @@
 
 #define CONVERT_OK		1
 
-int dataToHex(char* inData, int input_len, char* outHex);
-int hexToData(char* inHex, int input_len, char* outData);
-int dataToBinary(char* inData, int input_len, char* outBinary);
-int binaryToData(char* inBinary, int input_len, char* outData);
+int dataToHex(char* inData, int input_len, char** outData);
+int hexToData(char* inHex, int input_len, char** outData);
+int dataToBinary(char* inData, int input_len, char** outData);
+int binaryToData(char* inBinary, int input_len, char** outData);
 
